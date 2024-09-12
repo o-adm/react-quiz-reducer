@@ -73,8 +73,7 @@ function reducer(state, action) {
   }
 }
 
-const API_URL =
-  "https://drive.google.com/uc?export=download&id=1TfPPQWRS0rwyxJU8iRO-_0oODbR1PacO";
+const API_URL = "https://react-quiz-reducer.vercel.app/";
 
 function Quizz() {
   const [
@@ -90,7 +89,7 @@ function Quizz() {
     async function fetchQuestions() {
       try {
         await new Promise((resolve) => setTimeout(resolve, 3000));
-        const response = await fetch(`${API_URL}`);
+        const response = await fetch(`${API_URL}/data/questions.json`);
         const data = await response.json();
         dispatch({ type: "dataReceived", payload: data });
       } catch (err) {
