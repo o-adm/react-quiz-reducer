@@ -73,7 +73,8 @@ function reducer(state, action) {
   }
 }
 
-const API_URL = "http://localhost:8081";
+const API_URL =
+  "https://drive.google.com/uc?export=download&id=1TfPPQWRS0rwyxJU8iRO-_0oODbR1PacO";
 
 function Quizz() {
   const [
@@ -89,7 +90,7 @@ function Quizz() {
     async function fetchQuestions() {
       try {
         await new Promise((resolve) => setTimeout(resolve, 3000));
-        const response = await fetch(`${API_URL}/questions`);
+        const response = await fetch(`${API_URL}`);
         const data = await response.json();
         dispatch({ type: "dataReceived", payload: data });
       } catch (err) {
