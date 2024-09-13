@@ -87,8 +87,6 @@ function Quizz() {
 
   useEffect(function () {
     async function fetchQuestions() {
-      console.log(API_URL);
-
       try {
         await new Promise((resolve) => setTimeout(resolve, 3000));
         const response = await fetch(`${API_URL}/`);
