@@ -73,7 +73,7 @@ function reducer(state, action) {
   }
 }
 
-const API_URL = "https://react-quiz-reducer.vercel.app/";
+const API_URL = "https://api.npoint.io/e58995a6f3054c81f8dd/questions/";
 
 function Quizz() {
   const [
@@ -87,9 +87,11 @@ function Quizz() {
 
   useEffect(function () {
     async function fetchQuestions() {
+      console.log(API_URL);
+
       try {
         await new Promise((resolve) => setTimeout(resolve, 3000));
-        const response = await fetch(`${API_URL}/data/questions.json`);
+        const response = await fetch(`${API_URL}/`);
         const data = await response.json();
         dispatch({ type: "dataReceived", payload: data });
       } catch (err) {
